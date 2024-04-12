@@ -1,0 +1,31 @@
+[
+  {
+    "WorkflowName": "CalculationExample",
+    "Rules": [
+      {
+        "RuleName": "CheckTotals",
+        "SuccessEvent": "You passed the exam",
+        "ErrorMessage": "Error with marks evaluation",
+        "ErrorType": "Error",
+        "RuleExpressionType": "LambdaExpression",
+        "Expression": "(input1.science*input1.math) > 4000",
+        "Actions": {
+          "OnFailure": {
+            "Name": "OutputExpression",
+            "Context": {
+              "Expression": "\"You failed the exam\""
+            }
+          }
+        }
+      },
+      {
+        "RuleName": "CheckNames",
+        "SuccessEvent": "You will go to hall number 1",
+        "ErrorMessage": "Error with marks evaluation",
+        "ErrorType": "Error",
+        "RuleExpressionType": "LambdaExpression",
+        "Expression": "input1.studname.Contains(\"ish\")"
+      }
+    ]
+  }
+]

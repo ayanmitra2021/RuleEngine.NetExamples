@@ -1,0 +1,13 @@
+[IF:LTA_Salary_Extra_Amount_Is_Null{([param:hris.ExtraAmount8, !(0)] == null
+   0
+[ELSE:LTA_Salary_Extra_Amount_Is_Null] 
+	[IF:LTA_Salary_Extra_Amount_Is_Not_Null{([param:hris.ExtraAmount8] 
+		> [param:hris.AnnualSalary])}] 
+		[param:hris.ExtraAmount8] 
+	[ELSE:LTA_Salary_Extra_Amount_Is_Not_Null] 
+		[param:hris.AnnualSalary] 
+	[ENDIF:LTA_Salary_Extra_Amount_Is_Not_Null] 
+[ENDIF:LTA_Salary_Extra_Amount_Is_Null]
+
+
+

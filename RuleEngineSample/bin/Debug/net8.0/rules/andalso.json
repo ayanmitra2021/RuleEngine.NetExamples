@@ -1,0 +1,21 @@
+[
+  {
+    "WorkflowName": "Eligibility",
+    "Rules": [
+      {
+        "RuleName": "Check_00",
+        "Rules": [
+          {
+            "RuleName": "Check_02",
+            "Expression": "member.salary > 4000"
+          },
+          {
+            "RuleName": "Check_01",
+            "Expression": "member.gender = \"M\""
+          }
+        ],
+        "Operator": "Or"
+      }
+    ]
+  }
+]

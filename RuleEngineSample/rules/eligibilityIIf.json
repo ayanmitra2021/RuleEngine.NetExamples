@@ -1,0 +1,16 @@
+[
+  {
+    "WorkflowName": "Eligibility",
+    "Rules": [
+      {
+        "RuleName": "Early Cancer Risk Revew",
+        "SuccessEvent": "Eligible for Early Cancer Risk Revew",
+        "ErrorMessage": "One or more eligibility rules failed.",
+        "ErrorType": "Error",
+        "RuleExpressionType": "LambdaExpression",
+        //"Expression": "ExternalInputFunctions.IIf(member.age > 39 AND dependent.age > 39, ExternalInputFunctions.IIf(dependent.gender == \"F\", true, false), false)",
+        "Expression": "ExternalInputFunctions.IIf(member.age > 39 AND dependent.age > 39, true)"
+      }
+    ]
+  }
+]

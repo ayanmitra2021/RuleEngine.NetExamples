@@ -1,0 +1,15 @@
+[
+  {
+    "WorkflowName": "Pension",
+    "Rules": [
+      {
+        "RuleName": "LTAPensionAllowance",
+        "SuccessEvent": "Eligible for LTA Pension Allowance.",
+        "ErrorMessage": "One or more adjust rules failed.",
+        "ErrorType": "Error",
+        "RuleExpressionType": "LambdaExpression",
+        "Expression": "input1.ExtraAmount7 > 0 AND (input1.ExtraCode5 == \"N\" OR input1.ExtraCode5 == \"L\" OR input1.ExtraCode5 == \"F\") AND ((input1.ExtraAmount8 >= input1.AnnualSalary AND input1.ExtraAmount8 > 100000) OR (input1.ExtraAmount8 < input1.AnnualSalary AND input1.AnnualSalary > 100000))"
+      }
+    ]
+  }
+]

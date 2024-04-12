@@ -1,0 +1,9 @@
+//udv_LTASalary
+@@IfCond~@@~@@GF:~~ExtraAmount8Include~~Null,
+   0.00000~/ExtraAmount8Include~/:GF,
+GF:~~ExtraAmount8Include>~~@AnnualSalary,~/
+   ExtraAmount8Include>~/:GF,
+GF:Else:
+   GF~@@@AnnualSalary,
+@AnnualSalary,
+@ExtraAmount8~

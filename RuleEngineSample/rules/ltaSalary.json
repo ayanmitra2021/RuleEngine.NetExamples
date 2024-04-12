@@ -1,0 +1,46 @@
+[
+  {
+    "WorkflowName": "udv_LTASalary",
+    "Rules": [
+      {
+        "RuleName": "LTA_Salary_Extra_Amount_Is_Null",
+        "RuleExpressionType": "LambdaExpression",
+        "Expression": "hris.ExtraAmount8 == null",
+        "Actions": {
+          "OnSuccess": { 
+            "Name": "OutputExpression",
+            "Context": {
+              "Expression": "0"
+            }
+          },
+          "OnFailure": {
+            "Name": "EvaluateRule",
+            "Context": {
+              "WorkflowName": "udv_LTASalary",
+              "ruleName": "LTA_Salary_Extra_Amount_Is_Not_Null"
+            }
+          }
+        }
+      },
+      {
+        "RuleName": "LTA_Salary_Extra_Amount_Is_Not_Null",
+        "RuleExpressionType": "LambdaExpression",
+        "Expression": "hris.ExtraAmount8 >= hris.AnnualSalary",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression",
+            "Context": {
+              "Expression": "hris.ExtraAmount8 "
+            }
+          },
+          "OnFailure": {
+            "Name": "OutputExpression",
+            "Context": {
+              "Expression": "hris.AnnualSalary "
+            }
+          }
+        }
+      }
+    ]
+  }
+]
